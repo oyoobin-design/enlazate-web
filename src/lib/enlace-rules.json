@@ -1,0 +1,1190 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "default_region": "madrid",
+    "description": "Enlázate 음운 패턴 DB — Deep Research 학술 자료 기반",
+    "sources": [
+      "Hualde, J.I. (2005) The Sounds of Spanish",
+      "Navarro Tomás, T. (1918) Manual de Pronunciación Española",
+      "PRESEEA Corpus",
+      "Quilis, A. Tratado de fonología y fonética españolas"
+    ],
+    "categories": {
+      "enlace": "단어 경계를 넘어 소리가 연결되는 현상",
+      "cambio_fonologico": "글자와 실제 소리가 달라지는 현상",
+      "compuesto": "여러 규칙이 동시 적용되는 복합 현상"
+    }
+  },
+  "patterns": [
+    {
+      "id": "sinalefa",
+      "number": 1,
+      "category": "enlace",
+      "name_es": "Sinalefa y Sinéresis",
+      "name_ko": "모음 연결 및 축약",
+      "description": "단어 경계에서 모음끼리 하나의 음절로 융합되거나 이중모음을 형성하는 현상. 단어 내부에서 발생하면 시네레시스(Sinéresis)라 부름.",
+      "icon": "🟢",
+      "difficulty": 2,
+      "obligatorio": true,
+      "why_hard_for_korean": "한국어는 단어 경계에서 미세한 휴지나 성문 파열음([ʔ])을 삽입해 경계를 보존하지만, 스페인어는 de España를 [des.ˈpa.ɲa]처럼 3음절 단일 덩어리로 발음함. 독립된 두 단어를 인지하는 파싱에 실패.",
+      "ipa_rules": [
+        "동일 모음 융합: /V₁ # V₁/ → [V₁ː] 또는 [V₁]",
+        "상승 이중모음화: /i, u # V₂/ → [jV₂], [wV₂]",
+        "하강 이중모음화: /V₁ # i, u/ → [V₁j], [V₁w]"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "필수", "active_in_mvp": true, "notes": "모든 격식 수준에서 필수 발생" },
+        "andalucia": { "frequency": "필수", "active_in_mvp": true },
+        "mexico": { "frequency": "필수", "active_in_mvp": true, "notes": "모음 약화가 심한 내륙 고원에서는 약강세 모음이 아예 탈락하기도 함" },
+        "caribe": { "frequency": "필수", "active_in_mvp": true },
+        "argentina": { "frequency": "필수", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Mi amigo es alto.",
+          "textbook_ipa": "/mi a.mi.go es al.to/",
+          "real_ipa": "[mja.ˈmi.ɣwes.ˈal̪.to]",
+          "textbook_ko": "미 아미고 에스 알또",
+          "real_ko": "먀미고에살또",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "mi+amigo, es+alto 모음 연결"
+        },
+        {
+          "text": "Va a hacer frío.",
+          "textbook_ipa": "/ba a a.seɾ fɾi.o/",
+          "real_ipa": "[ˈba.seɾ.ˈfɾi.o]",
+          "textbook_ko": "바 아 아쎄르 프리오",
+          "real_ko": "바세르프리오",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "va+a+hacer 세 모음이 하나로 축약"
+        },
+        {
+          "text": "Qué te importa.",
+          "textbook_ipa": "/ke te im.poɾ.ta/",
+          "real_ipa": "[ˈke.tejm.ˈpoɾ.ta]",
+          "textbook_ko": "께 떼 임뽀르따",
+          "real_ko": "께뗌뽀르따",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "te+importa 모음 연결"
+        },
+        {
+          "text": "Su hermano",
+          "textbook_ipa": "/su eɾ.ma.no/",
+          "real_ipa": "[swer.ˈma.no]",
+          "textbook_ko": "수 에르마노",
+          "real_ko": "스웨르마노",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "su+hermano → u가 반모음 [w]로"
+        },
+        {
+          "text": "Lo he hecho.",
+          "textbook_ipa": "/lo e e.tʃo/",
+          "real_ipa": "[ˈlwe.ˈtʃo]",
+          "textbook_ko": "로 에 에초",
+          "real_ko": "루에초",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "lo+he+hecho 세 모음 융합"
+        },
+        {
+          "text": "Está aquí.",
+          "textbook_ipa": "/es.ta a.ki/",
+          "real_ipa": "[es.ˈta.ˈki]",
+          "textbook_ko": "에스따 아끼",
+          "real_ko": "에스따끼",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "está+aquí 동일 모음 융합"
+        },
+        {
+          "text": "Reino Unido",
+          "textbook_ipa": "/rej.no u.ni.do/",
+          "real_ipa": "[ˈrej.now.ˈni.ðo]",
+          "textbook_ko": "레이노 우니도",
+          "real_ko": "레이노우니도",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "no+Unido 모음 연결"
+        },
+        {
+          "text": "Cada año",
+          "textbook_ipa": "/ka.da a.ɲo/",
+          "real_ipa": "[ˈka.ˈða.ɲo]",
+          "textbook_ko": "까다 아뇨",
+          "real_ko": "까다뇨",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "da+año 동일 모음 융합"
+        },
+        {
+          "text": "No entiendo.",
+          "textbook_ipa": "/no en.tjen.do/",
+          "real_ipa": "[nwen.ˈtjen.do]",
+          "textbook_ko": "노 엔띠엔도",
+          "real_ko": "눤띠엔도",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "no+entiendo → o가 반모음 [w]로"
+        },
+        {
+          "text": "La escuela",
+          "textbook_ipa": "/la es.kwe.la/",
+          "real_ipa": "[las.ˈkwe.la]",
+          "textbook_ko": "라 에스꾸엘라",
+          "real_ko": "라스꾸엘라",
+          "applied_rules": ["sinalefa"],
+          "highlight_description": "la+escuela 모음 연결"
+        }
+      ]
+    },
+    {
+      "id": "resilabificacion",
+      "number": 2,
+      "category": "enlace",
+      "name_es": "Resilabificación",
+      "name_ko": "자음-모음 재음절화",
+      "description": "자음으로 끝나는 단어 뒤에 모음으로 시작하는 단어가 올 때, 앞 단어의 종성 자음이 뒷 단어의 초성으로 이동하여 새 음절을 구성하는 현상.",
+      "icon": "🔵",
+      "difficulty": 2,
+      "obligatorio": true,
+      "why_hard_for_korean": "한국어 연음 법칙(옷이→[오시])은 체언+조사 등 밀접 결합 환경에서만 발생하지만, 스페인어는 내용어+내용어 사이에서도 예외 없이 적용. Tienes alas와 Tiene salas가 둘 다 [tje.ne.ˈsa.las]로 동음이 됨.",
+      "ipa_rules": [
+        "/(C)VC # V(C)/ → [(C)V.CV(C)] — 단어 경계(#)가 음절 경계(.) 뒤로 이동"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "필수", "active_in_mvp": true },
+        "andalucia": { "frequency": "필수", "active_in_mvp": true, "notes": "어말 /s/ 약화와 상호작용 — los ojos가 [lo.ˈho.xoh]로" },
+        "mexico": { "frequency": "필수", "active_in_mvp": true },
+        "caribe": { "frequency": "필수", "active_in_mvp": true },
+        "argentina": { "frequency": "필수", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Mis amigos",
+          "textbook_ipa": "/mis a.mi.gos/",
+          "real_ipa": "[mi.sa.ˈmi.ɣos]",
+          "textbook_ko": "미스 아미고스",
+          "real_ko": "미사미고스",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "s가 다음 모음의 초성으로 이동"
+        },
+        {
+          "text": "El avión",
+          "textbook_ipa": "/el a.bjon/",
+          "real_ipa": "[e.la.ˈβjon]",
+          "textbook_ko": "엘 아비온",
+          "real_ko": "엘라비온",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "l이 다음 음절 초성으로"
+        },
+        {
+          "text": "Un actor",
+          "textbook_ipa": "/un ak.toɾ/",
+          "real_ipa": "[u.nak.ˈtoɾ]",
+          "textbook_ko": "운 악또르",
+          "real_ko": "우낙또르",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "n이 다음 음절 초성으로"
+        },
+        {
+          "text": "Los ojos",
+          "textbook_ipa": "/los o.xos/",
+          "real_ipa": "[lo.ˈso.xos]",
+          "textbook_ko": "로스 오호스",
+          "real_ko": "로소호스",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "s가 다음 모음의 초성으로"
+        },
+        {
+          "text": "Con ella",
+          "textbook_ipa": "/kon e.ʎa/",
+          "real_ipa": "[ko.ˈne.ʝa]",
+          "textbook_ko": "꼰 에야",
+          "real_ko": "꼬네야",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "n이 다음 음절 초성으로"
+        },
+        {
+          "text": "Amor eterno",
+          "textbook_ipa": "/a.moɾ e.teɾ.no/",
+          "real_ipa": "[a.mo.ɾe.ˈteɾ.no]",
+          "textbook_ko": "아모르 에떼르노",
+          "real_ko": "아모레떼르노",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "r이 다음 음절 초성으로"
+        },
+        {
+          "text": "Las horas",
+          "textbook_ipa": "/las o.ɾas/",
+          "real_ipa": "[la.ˈso.ɾas]",
+          "textbook_ko": "라스 오라스",
+          "real_ko": "라소라스",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "s가 다음 음절 초성으로"
+        },
+        {
+          "text": "Club abierto",
+          "textbook_ipa": "/klub a.bjeɾ.to/",
+          "real_ipa": "[klu.βa.ˈβjeɾ.to]",
+          "textbook_ko": "끌룹 아비에르또",
+          "real_ko": "끌루바비에르또",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "b가 다음 음절 초성으로"
+        },
+        {
+          "text": "Tienes alas",
+          "textbook_ipa": "/tje.nes a.las/",
+          "real_ipa": "[tje.ne.ˈsa.las]",
+          "textbook_ko": "띠에네스 알라스",
+          "real_ko": "띠에네살라스",
+          "applied_rules": ["resilabificacion"],
+          "highlight_description": "s가 이동 → Tiene salas와 동음!"
+        },
+        {
+          "text": "Mitad amigo",
+          "textbook_ipa": "/mi.tad a.mi.go/",
+          "real_ipa": "[mi.ta.ða.ˈmi.ɣo]",
+          "textbook_ko": "미따드 아미고",
+          "real_ko": "미따다미고",
+          "applied_rules": ["resilabificacion", "espirantizacion"],
+          "highlight_description": "d가 재음절화 + 마찰음화"
+        }
+      ]
+    },
+    {
+      "id": "espirantizacion",
+      "number": 3,
+      "category": "cambio_fonologico",
+      "name_es": "Espirantización y Lenición de /b, d, g/",
+      "name_ko": "유성 파열음 마찰음화",
+      "description": "유성 파열음 /b, d, g/가 모음 사이 등 특정 환경에서 마찰음/접근음 [β, ð, ɣ]으로 약화. 입술이나 혀가 '닿을 듯 말 듯' 하며 기류가 계속 빠져나감.",
+      "icon": "⚫",
+      "difficulty": 3,
+      "obligatorio": true,
+      "why_hard_for_korean": "한국어 평음(ㅂ,ㄷ,ㄱ)은 모음 사이에서 유성 '파열음' [b,d,g]로 실현되므로, 한국인은 스페인어 모음 간 /b,d,g/도 강하게 터지는 소리를 기대함. 실제로는 입술/혀가 안 닿는 [β,ð,ɣ]이라 전혀 다른 소리로 착각하거나 아예 안 들림. abogado를 [아오아오]처럼 오청.",
+      "ipa_rules": [
+        "/b/ → [β] / V_V, C(비음 제외)_",
+        "/d/ → [ð] / V_V, C(비음·/l/ 제외)_",
+        "/g/ → [ɣ] / V_V, C(비음 제외)_",
+        "파열음 보존: 절대 어두, 비음 뒤, /d/는 /l/ 뒤에서도 보존"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "필수", "active_in_mvp": true, "notes": "모든 화자에게 필수적 이음 규칙" },
+        "andalucia": { "frequency": "필수", "active_in_mvp": true, "notes": "무성 파열음까지 약화되는 극단적 현상 존재" },
+        "mexico": { "frequency": "필수", "active_in_mvp": true },
+        "caribe": { "frequency": "필수", "active_in_mvp": true },
+        "argentina": { "frequency": "필수", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "La vaca",
+          "textbook_ipa": "/la ba.ka/",
+          "real_ipa": "[la ˈβa.ka]",
+          "textbook_ko": "라 바까",
+          "real_ko": "라 바까 (입술 안 닿음)",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "/b/ → [β] 모음 뒤"
+        },
+        {
+          "text": "Cada día",
+          "textbook_ipa": "/ka.da di.a/",
+          "real_ipa": "[ˈka.ða ˈði.a]",
+          "textbook_ko": "까다 디아",
+          "real_ko": "까다 디아 (혀가 살짝 스침)",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "/d/ → [ð] 모음 사이"
+        },
+        {
+          "text": "El agua",
+          "textbook_ipa": "/el a.gwa/",
+          "real_ipa": "[e.ˈla.ɣwa]",
+          "textbook_ko": "엘 아과",
+          "real_ko": "엘라과",
+          "applied_rules": ["espirantizacion", "resilabificacion"],
+          "highlight_description": "/g/ → [ɣ] 모음 뒤"
+        },
+        {
+          "text": "Lobo",
+          "textbook_ipa": "/lo.bo/",
+          "real_ipa": "[ˈlo.βo]",
+          "textbook_ko": "로보",
+          "real_ko": "로보 (입술 안 닿음)",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "/b/ → [β]"
+        },
+        {
+          "text": "Vida",
+          "textbook_ipa": "/bi.da/",
+          "real_ipa": "[ˈbi.ða]",
+          "textbook_ko": "비다",
+          "real_ko": "비다 (두 번째 d는 혀 스침)",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "어두 /b/는 파열음 보존, /d/는 약화"
+        },
+        {
+          "text": "Fuego",
+          "textbook_ipa": "/fwe.go/",
+          "real_ipa": "[ˈfwe.ɣo]",
+          "textbook_ko": "푸에고",
+          "real_ko": "푸에고 (g 약화)",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "/g/ → [ɣ]"
+        },
+        {
+          "text": "Hablar verdad",
+          "textbook_ipa": "/a.blaɾ beɾ.dad/",
+          "real_ipa": "[a.ˈβlaɾ βeɾ.ˈðað]",
+          "textbook_ko": "아블라르 베르다드",
+          "real_ko": "아블라르 베르닫",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "모든 b, d가 약화"
+        },
+        {
+          "text": "Desde luego",
+          "textbook_ipa": "/des.de lwe.go/",
+          "real_ipa": "[dez.ðe ˈlwe.ɣo]",
+          "textbook_ko": "데스데 루에고",
+          "real_ko": "데스데 루에고",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "어두 d는 보존, 두 번째 d와 g는 약화"
+        },
+        {
+          "text": "Mi bebé",
+          "textbook_ipa": "/mi be.be/",
+          "real_ipa": "[mi βe.ˈβe]",
+          "textbook_ko": "미 베베",
+          "real_ko": "미 베베 (둘 다 입술 안 닿음)",
+          "applied_rules": ["espirantizacion"],
+          "highlight_description": "모음 뒤 /b/ → [β]"
+        },
+        {
+          "text": "Un gato grande",
+          "textbook_ipa": "/un ga.to gɾan.de/",
+          "real_ipa": "[uŋ ˈga.to ˈɣɾan̪.de]",
+          "textbook_ko": "운 가또 그란데",
+          "real_ko": "웅 가또 그란데",
+          "applied_rules": ["espirantizacion", "asimilacion_nasal"],
+          "highlight_description": "비음 뒤 g는 보존, 두 번째 g는 약화"
+        }
+      ]
+    },
+    {
+      "id": "s_aspiration",
+      "number": 4,
+      "category": "cambio_fonologico",
+      "name_es": "Aspiración y elisión de /s/ en coda",
+      "name_ko": "음절 말 /s/ 기식음화 및 탈락",
+      "description": "음절 종성의 /s/가 성문 마찰음 [h]로 약화되거나 완전 탈락하는 현상. /s/는 복수·2인칭 등 핵심 문법 정보를 담고 있어 탈락 시 의미 파악에 치명적.",
+      "icon": "🔴",
+      "difficulty": 3,
+      "obligatorio": false,
+      "why_hard_for_korean": "한국어 /ㅅ/은 음절 말에서 [ㄷ]으로 중화되어 마찰음 자체에 대한 청각 훈련이 부재. 원어민이 /s/를 [h]로 발음하거나 생략하면 수/인칭 등 문법 단서를 완전히 놓침.",
+      "ipa_rules": [
+        "기식음화: /s/ → [h] / _C, _#",
+        "탈락: /s/ → [∅] / _C, _#"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "드묾 (보존)", "active_in_mvp": true, "notes": "마드리드는 /s/ 보존 지역. 하지만 빠른 비격식 발화에서 약한 약화 가능. 학습자는 '이런 현상이 있다'는 것을 알아야 함." },
+        "andalucia": { "frequency": "매우 빈번", "active_in_mvp": true, "notes": "표준에 가깝게 빈번. 유빈의 하엔 경험과 직결." },
+        "mexico": { "frequency": "드묾 (보존)", "active_in_mvp": false },
+        "caribe": { "frequency": "매우 빈번", "active_in_mvp": true },
+        "argentina": { "frequency": "빈번", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Las moscas",
+          "textbook_ipa": "/las mos.kas/",
+          "real_ipa": "[lah ˈmoh.kah]",
+          "textbook_ko": "라스 모스까스",
+          "real_ko": "라흐 모흐까흐",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "모든 음절 말 s → [h]"
+        },
+        {
+          "text": "Estamos",
+          "textbook_ipa": "/es.ta.mos/",
+          "real_ipa": "[eh.ˈta.moh]",
+          "textbook_ko": "에스따모스",
+          "real_ko": "에흐따모흐",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "어두·어말 s 모두 약화"
+        },
+        {
+          "text": "¿Cómo estás?",
+          "textbook_ipa": "/ko.mo es.tas/",
+          "real_ipa": "[ˈko.mweh.ˈtah]",
+          "textbook_ko": "꼬모 에스따스",
+          "real_ko": "꼬뭬흐따흐",
+          "applied_rules": ["s_aspiration", "sinalefa"],
+          "highlight_description": "s 기식음화 + 모음 연결 동시"
+        },
+        {
+          "text": "Hasta luego",
+          "textbook_ipa": "/as.ta lwe.go/",
+          "real_ipa": "[ˈah.ta ˈlwe.ɣo]",
+          "textbook_ko": "아스따 루에고",
+          "real_ko": "아흐따 루에고",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "s → [h]"
+        },
+        {
+          "text": "Más o menos",
+          "textbook_ipa": "/mas o me.nos/",
+          "real_ipa": "[ˈma.ho ˈme.noh]",
+          "textbook_ko": "마스 오 메노스",
+          "real_ko": "마호 메노흐",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "모음 앞에서도 약화 (혁신적 방언)"
+        },
+        {
+          "text": "Mismo",
+          "textbook_ipa": "/mis.mo/",
+          "real_ipa": "[ˈmih.mo]",
+          "textbook_ko": "미스모",
+          "real_ko": "미흐모",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "자음 앞 s → [h]"
+        },
+        {
+          "text": "Los niños",
+          "textbook_ipa": "/los ni.ɲos/",
+          "real_ipa": "[loh ˈni.ɲoh]",
+          "textbook_ko": "로스 니뇨스",
+          "real_ko": "로흐 니뇨흐",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "복수 표지 s가 사라짐"
+        },
+        {
+          "text": "Dos veces",
+          "textbook_ipa": "/dos be.ses/",
+          "real_ipa": "[doh ˈβe.seh]",
+          "textbook_ko": "도스 베세(θ)스",
+          "real_ko": "도흐 베세흐",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "어말 s 모두 약화"
+        },
+        {
+          "text": "Es que",
+          "textbook_ipa": "/es ke/",
+          "real_ipa": "[ˈeh.ke]",
+          "textbook_ko": "에스 께",
+          "real_ko": "에흐 께",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "자음 앞 s → [h]"
+        },
+        {
+          "text": "Buenos Aires",
+          "textbook_ipa": "/bwe.nos aj.ɾes/",
+          "real_ipa": "[ˈbwe.noh ˈaj.ɾeh]",
+          "textbook_ko": "부에노스 아이레스",
+          "real_ko": "부에노흐 아이레흐",
+          "applied_rules": ["s_aspiration"],
+          "highlight_description": "어말 s 약화"
+        }
+      ]
+    },
+    {
+      "id": "d_elision",
+      "number": 5,
+      "category": "cambio_fonologico",
+      "name_es": "Pérdida de /d/ intervocálica",
+      "name_ko": "모음 간 /d/ 탈락",
+      "description": "모음 사이 /d/가 [ð] 약화를 넘어 완전 탈락(∅). 특히 -ado 어미에서 80~90% 이상 탈락. todo, nada 등 고빈도 어휘에서도 빈번.",
+      "icon": "🟠",
+      "difficulty": 2,
+      "obligatorio": false,
+      "why_hard_for_korean": "단어의 핵심 자음이 사라지면서 cansado→[깐사오]가 되어, 동사 원형이나 전혀 다른 어휘로 오청. todo→[또], nada→[나]로 축약되면 문맥 파악 실패.",
+      "ipa_rules": [
+        "/d/ → [ð] → [∅] / V_V",
+        "특히 -ado에서 압도적 탈락률"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "빈번 (-ado 한정)", "active_in_mvp": true, "notes": "마드리드도 -ado 형태소에서는 탈락률 매우 높음. 보수적이라 여겨지는 지역에서도 해당." },
+        "andalucia": { "frequency": "매우 빈번 (전반적)", "active_in_mvp": true },
+        "mexico": { "frequency": "빈번 (-ado 중심)", "active_in_mvp": true },
+        "caribe": { "frequency": "매우 빈번", "active_in_mvp": true },
+        "argentina": { "frequency": "빈번", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Cansado",
+          "textbook_ipa": "/kan.sa.do/",
+          "real_ipa": "[kan.ˈsa.o]",
+          "textbook_ko": "깐사도",
+          "real_ko": "깐사오",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "-ado → -ao"
+        },
+        {
+          "text": "Comprado",
+          "textbook_ipa": "/kom.pɾa.do/",
+          "real_ipa": "[kom.ˈpɾa.o]",
+          "textbook_ko": "꼼쁘라도",
+          "real_ko": "꼼쁘라오",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "-ado → -ao"
+        },
+        {
+          "text": "Todo el día",
+          "textbook_ipa": "/to.do el di.a/",
+          "real_ipa": "[ˈto.el ˈði.a]",
+          "textbook_ko": "또도 엘 디아",
+          "real_ko": "똴 디아",
+          "applied_rules": ["d_elision", "sinalefa"],
+          "highlight_description": "todo → to + 모음 연결"
+        },
+        {
+          "text": "Nada",
+          "textbook_ipa": "/na.da/",
+          "real_ipa": "[ˈna.a] / [ˈna]",
+          "textbook_ko": "나다",
+          "real_ko": "나아 / 나",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "고빈도 어휘 축약"
+        },
+        {
+          "text": "Hablado",
+          "textbook_ipa": "/a.bla.do/",
+          "real_ipa": "[a.ˈβla.o]",
+          "textbook_ko": "아블라도",
+          "real_ko": "아블라오",
+          "applied_rules": ["d_elision", "espirantizacion"],
+          "highlight_description": "-ado → -ao + b 마찰음화"
+        },
+        {
+          "text": "Perdido",
+          "textbook_ipa": "/peɾ.di.do/",
+          "real_ipa": "[peɾ.ˈði.o]",
+          "textbook_ko": "뻬르디도",
+          "real_ko": "뻬르디오",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "-ido에서도 탈락"
+        },
+        {
+          "text": "Dedos",
+          "textbook_ipa": "/de.dos/",
+          "real_ipa": "[ˈde.os]",
+          "textbook_ko": "데도스",
+          "real_ko": "데오스",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "명사 내부 d 탈락"
+        },
+        {
+          "text": "Lado",
+          "textbook_ipa": "/la.do/",
+          "real_ipa": "[ˈla.o]",
+          "textbook_ko": "라도",
+          "real_ko": "라오",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "모음 간 d 탈락"
+        },
+        {
+          "text": "Cada uno",
+          "textbook_ipa": "/ka.da u.no/",
+          "real_ipa": "[ˈka.a ˈu.no] / [ka ˈu.no]",
+          "textbook_ko": "까다 우노",
+          "real_ko": "까아 우노 / 까 우노",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "cada → caa / ca"
+        },
+        {
+          "text": "Mercado",
+          "textbook_ipa": "/meɾ.ka.do/",
+          "real_ipa": "[meɾ.ˈka.o]",
+          "textbook_ko": "메르까도",
+          "real_ko": "메르까오",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "-ado → -ao"
+        }
+      ]
+    },
+    {
+      "id": "asimilacion_nasal",
+      "number": 6,
+      "category": "cambio_fonologico",
+      "name_es": "Asimilación nasal en coda",
+      "name_ko": "음절 말 비음 동화",
+      "description": "음절 종성 /n/이 후행 자음의 조음 위치에 동화되는 역행 동화. 양순음 앞 [m], 연구개음 앞 [ŋ], 순치음 앞 [ɱ] 등 5~6가지로 변이.",
+      "icon": "🟣",
+      "difficulty": 1,
+      "obligatorio": true,
+      "why_hard_for_korean": "한국어에도 비음 동화(신발→[심발])가 있지만, 스페인어처럼 5~6가지 조음 위치로 다채롭게 변이하지 않음. 단어 경계를 무시하고 un vaso→[um.ˈba.so]로 연속 발음되면 기저 형태 /n/을 역추적 못함.",
+      "ipa_rules": [
+        "/n/ → [m] / _[p, b] (un vaso → [um.ˈba.so])",
+        "/n/ → [ɱ] / _[f] (enfermo → [eɱ.ˈfeɾ.mo])",
+        "/n/ → [n̪] / _[t, d] (un tren → [un̪.ˈtɾen])",
+        "/n/ → [ɲ] / _[tʃ, ʝ] (un chico → [uɲ.ˈtʃi.ko])",
+        "/n/ → [ŋ] / _[k, g, x] (con queso → [koŋ.ˈke.so])"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "필수", "active_in_mvp": true },
+        "andalucia": { "frequency": "필수", "active_in_mvp": true, "notes": "추가로 어말 /n/이 무조건 [ŋ]으로 실현되는 연구개음화 존재" },
+        "mexico": { "frequency": "필수", "active_in_mvp": true },
+        "caribe": { "frequency": "필수", "active_in_mvp": true, "notes": "연구개음화 [ŋ] 강력" },
+        "argentina": { "frequency": "필수", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Un beso",
+          "textbook_ipa": "/un be.so/",
+          "real_ipa": "[um ˈbe.so]",
+          "textbook_ko": "운 베소",
+          "real_ko": "움 베소",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [m] 양순음 앞"
+        },
+        {
+          "text": "Un perro",
+          "textbook_ipa": "/un pe.ro/",
+          "real_ipa": "[um ˈpe.ro]",
+          "textbook_ko": "운 뻬로",
+          "real_ko": "움 뻬로",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [m] 양순음 앞"
+        },
+        {
+          "text": "Con queso",
+          "textbook_ipa": "/kon ke.so/",
+          "real_ipa": "[koŋ ˈke.so]",
+          "textbook_ko": "꼰 께소",
+          "real_ko": "꽁 께소",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [ŋ] 연구개음 앞"
+        },
+        {
+          "text": "En casa",
+          "textbook_ipa": "/en ka.sa/",
+          "real_ipa": "[eŋ ˈka.sa]",
+          "textbook_ko": "엔 까사",
+          "real_ko": "엥 까사",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [ŋ] 연구개음 앞"
+        },
+        {
+          "text": "Enfermo",
+          "textbook_ipa": "/en.feɾ.mo/",
+          "real_ipa": "[eɱ.ˈfeɾ.mo]",
+          "textbook_ko": "엔페르모",
+          "real_ko": "엠페르모",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [ɱ] 순치음 앞"
+        },
+        {
+          "text": "Un chico",
+          "textbook_ipa": "/un tʃi.ko/",
+          "real_ipa": "[uɲ ˈtʃi.ko]",
+          "textbook_ko": "운 치꼬",
+          "real_ko": "운(구개) 치꼬",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [ɲ] 구개음 앞"
+        },
+        {
+          "text": "Con fuego",
+          "textbook_ipa": "/kon fwe.go/",
+          "real_ipa": "[koɱ ˈfwe.ɣo]",
+          "textbook_ko": "꼰 푸에고",
+          "real_ko": "꼼 푸에고",
+          "applied_rules": ["asimilacion_nasal", "espirantizacion"],
+          "highlight_description": "n → [ɱ] + g 마찰음화"
+        },
+        {
+          "text": "Son gordos",
+          "textbook_ipa": "/son goɾ.dos/",
+          "real_ipa": "[soŋ ˈgoɾ.ðos]",
+          "textbook_ko": "손 고르도스",
+          "real_ko": "송 고르도스",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [ŋ] 연구개음 앞"
+        },
+        {
+          "text": "Un zapato",
+          "textbook_ipa": "/un θa.pa.to/",
+          "real_ipa": "[un̪ θa.ˈpa.to]",
+          "textbook_ko": "운 사(θ)빠또",
+          "real_ko": "운(치) 사(θ)빠또",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [n̪] 치음 앞"
+        },
+        {
+          "text": "Cónyuge",
+          "textbook_ipa": "/kon.ʝu.xe/",
+          "real_ipa": "[ˈkoɲ.ɟʝu.xe]",
+          "textbook_ko": "꼰유헤",
+          "real_ko": "꼬뉴헤",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "n → [ɲ] 구개음 앞"
+        }
+      ]
+    },
+    {
+      "id": "asimilacion_lateral",
+      "number": 7,
+      "category": "cambio_fonologico",
+      "name_es": "Asimilación lateral y neutralización",
+      "name_ko": "설측음 동화 및 변이",
+      "description": "음절 종성 /l/이 후행 자음의 조음 위치에 동화. 치음 앞에서 치 설측음, 구개음 앞에서 구개 설측음으로 변이. 카리브해에서는 /l/↔/r/ 중화(혼용) 현상 존재.",
+      "icon": "🟤",
+      "difficulty": 2,
+      "obligatorio": true,
+      "why_hard_for_korean": "한국어 /ㄹ/은 초성에서 탄음, 종성에서 설측음으로 실현되는 조건 이음이지만, 스페인어는 /l/과 /r/이 별개 음소. 미세한 조음 위치 변화를 감지 못하며, 카리브해 방언에서 /l/↔/r/ 교체 시 어휘 자체를 오인.",
+      "ipa_rules": [
+        "/l/ → [l̪] / _[t, d] (el tiempo → [el̪.ˈtjem.po])",
+        "/l/ → [ʎ] / _[tʃ, ʝ] (el chico → [eʎ.ˈtʃi.ko])"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "필수 (동화)", "active_in_mvp": true, "notes": "조음 위치 동화는 필수. /l/↔/r/ 중화는 없음." },
+        "andalucia": { "frequency": "필수 + 중화 존재", "active_in_mvp": false, "notes": "/l/↔/r/ 중화(Rhotacism/Lambdacism) 존재" },
+        "mexico": { "frequency": "필수 (동화만)", "active_in_mvp": true },
+        "caribe": { "frequency": "필수 + 중화 매우 빈번", "active_in_mvp": false, "notes": "alma→[ˈaɾ.ma], puerta→[ˈpwel.ta]" },
+        "argentina": { "frequency": "필수 (동화만)", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "El tiempo",
+          "textbook_ipa": "/el tjem.po/",
+          "real_ipa": "[el̪ˈtjem.po]",
+          "textbook_ko": "엘 띠엠뽀",
+          "real_ko": "엘(치음) 띠엠뽀",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "/l/ → 치 설측음"
+        },
+        {
+          "text": "El chico",
+          "textbook_ipa": "/el tʃi.ko/",
+          "real_ipa": "[eʎ ˈtʃi.ko]",
+          "textbook_ko": "엘 치꼬",
+          "real_ko": "엘(구개) 치꼬",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "/l/ → 구개 설측음"
+        },
+        {
+          "text": "Alto",
+          "textbook_ipa": "/al.to/",
+          "real_ipa": "[ˈal̪.to]",
+          "textbook_ko": "알또",
+          "real_ko": "알또",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "/l/ → 치 설측음"
+        },
+        {
+          "text": "Colchón",
+          "textbook_ipa": "/kol.tʃon/",
+          "real_ipa": "[koʎ.ˈtʃon]",
+          "textbook_ko": "꼴촌",
+          "real_ko": "꼴(구개) 촌",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "/l/ → 구개 설측음"
+        },
+        {
+          "text": "El yate",
+          "textbook_ipa": "/el ʝa.te/",
+          "real_ipa": "[eʎ ˈʝa.te]",
+          "textbook_ko": "엘 야떼",
+          "real_ko": "엘(구개) 야떼",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "/l/ → 구개 설측음"
+        },
+        {
+          "text": "Soldado",
+          "textbook_ipa": "/sol.da.do/",
+          "real_ipa": "[sol̪.ˈda.ðo]",
+          "textbook_ko": "솔다도",
+          "real_ko": "솔다도",
+          "applied_rules": ["asimilacion_lateral", "espirantizacion"],
+          "highlight_description": "/l/ 치음 동화 + d 마찰음화"
+        },
+        {
+          "text": "Alma (카리브)",
+          "textbook_ipa": "/al.ma/",
+          "real_ipa": "[ˈaɾ.ma]",
+          "textbook_ko": "알마",
+          "real_ko": "아르마",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "카리브: /l/ → /r/ (Rhotacism)"
+        },
+        {
+          "text": "Puerta (카리브)",
+          "textbook_ipa": "/pweɾ.ta/",
+          "real_ipa": "[ˈpwel.ta]",
+          "textbook_ko": "뿌에르따",
+          "real_ko": "뿌엘따",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "카리브: /r/ → /l/ (Lambdacism)"
+        },
+        {
+          "text": "Al dar",
+          "textbook_ipa": "/al daɾ/",
+          "real_ipa": "[al̪ˈdaɾ]",
+          "textbook_ko": "알 다르",
+          "real_ko": "알(치음) 다르",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "/l/ → 치 설측음"
+        },
+        {
+          "text": "Mi culpa (카리브)",
+          "textbook_ipa": "/mi kul.pa/",
+          "real_ipa": "[mi ˈkuɾ.pa]",
+          "textbook_ko": "미 꿀빠",
+          "real_ko": "미 꾸르빠",
+          "applied_rules": ["asimilacion_lateral"],
+          "highlight_description": "카리브: /l/ → /r/"
+        }
+      ]
+    },
+    {
+      "id": "reduccion_vocalica",
+      "number": 8,
+      "category": "cambio_fonologico",
+      "name_es": "Reducción y ensordecimiento vocálico",
+      "name_ko": "비강세 모음 약화 및 무성음화",
+      "description": "강세 없는 음절의 모음이 지속 시간을 잃고 무성음화되거나 완전 탈락. 특히 무성 마찰음 /s/ 인접 환경에서 빈번. 멕시코 내륙/안데스 고원 특화.",
+      "icon": "⚪",
+      "difficulty": 3,
+      "obligatorio": false,
+      "why_hard_for_korean": "한국어 모음은 강세와 무관하게 음가를 확고히 유지. 음절 단위로 인지하는 한국인에게 모음이 무성음화/탈락하면 음절 수 자체를 파악 못함. pues→[pws], entonces→[en.ˈton.ss].",
+      "ipa_rules": [
+        "/V/ → [V̥] / 무성 자음 인접 (무성음화)",
+        "/V/ → [∅] (모음 탈락)"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "거의 없음", "active_in_mvp": false, "notes": "마드리드에서는 거의 발생하지 않음" },
+        "andalucia": { "frequency": "거의 없음", "active_in_mvp": false },
+        "mexico": { "frequency": "매우 빈번", "active_in_mvp": false, "notes": "멕시코 내륙 고원(멕시코시티 포함)의 상징적 특징" },
+        "caribe": { "frequency": "거의 없음", "active_in_mvp": false },
+        "argentina": { "frequency": "드묾", "active_in_mvp": false }
+      },
+      "examples": [
+        {
+          "text": "Pues",
+          "textbook_ipa": "/pwes/",
+          "real_ipa": "[pws]",
+          "textbook_ko": "뿌에스",
+          "real_ko": "뿨스",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "e 무성음화/탈락"
+        },
+        {
+          "text": "Pesos",
+          "textbook_ipa": "/pe.sos/",
+          "real_ipa": "[ˈpe.so̥s]",
+          "textbook_ko": "뻬소스",
+          "real_ko": "뻬소흐 (모음 무성음)",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "어말 모음 무성음화"
+        },
+        {
+          "text": "Presidente",
+          "textbook_ipa": "/pɾe.si.den.te/",
+          "real_ipa": "[pɾes.ˈðen.te]",
+          "textbook_ko": "쁘레시덴떼",
+          "real_ko": "쁘레스덴떼",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "비강세 i 탈락"
+        },
+        {
+          "text": "Estudiantes",
+          "textbook_ipa": "/es.tu.djan.tes/",
+          "real_ipa": "[es.tud.ˈjan.ts]",
+          "textbook_ko": "에스뚜디안떼스",
+          "real_ko": "에스뚣얀쯔",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "어말 모음 탈락"
+        },
+        {
+          "text": "Entonces",
+          "textbook_ipa": "/en.ton.ses/",
+          "real_ipa": "[en.ˈton.ss]",
+          "textbook_ko": "엔똔세(θ)스",
+          "real_ko": "엔똔쓰",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "e 탈락"
+        },
+        {
+          "text": "Muchas gracias",
+          "textbook_ipa": "/mu.tʃas gɾa.θjas/",
+          "real_ipa": "[mu.tʃs ˈgɾa.θjs]",
+          "textbook_ko": "무짜스 그라시(θ)아스",
+          "real_ko": "무췃 그라쌰스",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "비강세 모음 다수 탈락"
+        },
+        {
+          "text": "Cómo estás",
+          "textbook_ipa": "/ko.mo es.tas/",
+          "real_ipa": "[ˈko.mos.ˈts]",
+          "textbook_ko": "꼬모 에스따스",
+          "real_ko": "꼬모스쯔",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "극단적 모음 탈락"
+        },
+        {
+          "text": "Pasos",
+          "textbook_ipa": "/pa.sos/",
+          "real_ipa": "[ˈpa.so̥s]",
+          "textbook_ko": "빠소스",
+          "real_ko": "빠소스 (o를 속삭이듯)",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "어말 모음 무성음화"
+        },
+        {
+          "text": "Queso",
+          "textbook_ipa": "/ke.so/",
+          "real_ipa": "[ˈke.so̥]",
+          "textbook_ko": "께소",
+          "real_ko": "께소 (속삭이듯)",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "어말 모음 무성음화"
+        },
+        {
+          "text": "Antes",
+          "textbook_ipa": "/an.tes/",
+          "real_ipa": "[ˈan.ts]",
+          "textbook_ko": "안떼스",
+          "real_ko": "안쯔",
+          "applied_rules": ["reduccion_vocalica"],
+          "highlight_description": "e 탈락"
+        }
+      ]
+    },
+    {
+      "id": "elision_final",
+      "number": 9,
+      "category": "cambio_fonologico",
+      "name_es": "Elisión de consonante final",
+      "name_ko": "어말 자음 탈락",
+      "description": "단어 끝 /d/, /r/, /l/ 등이 약화/탈락. 특히 부정사 어미 -ar/-er/-ir의 /r/과 명사 어말 /d/(verdad, ciudad)에서 두드러짐.",
+      "icon": "🟡",
+      "difficulty": 2,
+      "obligatorio": false,
+      "why_hard_for_korean": "어말 자음은 품사(부정사 등)와 수를 구분하는 형태론적 단서. hablar→[a.ˈβla]가 되면 habla(3인칭 현재)와 혼동. 통사적 혼란 유발.",
+      "ipa_rules": [
+        "/d/ → [θ] 또는 [∅] / _# (verdad → [beɾ.ˈðaθ] 또는 [beɾ.ˈða])",
+        "/r/ → [∅] / _# (cantar → [kan.ˈta])"
+      ],
+      "region_config": {
+        "madrid": { "frequency": "빈번 (어말 /d/)", "active_in_mvp": true, "notes": "어말 /d/의 탈락/무성음화([θ])는 마드리드에서도 매우 흔함. 어말 /r/ 탈락은 남부 특화." },
+        "andalucia": { "frequency": "매우 빈번 (/d/+/r/ 모두)", "active_in_mvp": true },
+        "mexico": { "frequency": "빈번 (어말 /d/)", "active_in_mvp": true },
+        "caribe": { "frequency": "매우 빈번", "active_in_mvp": true },
+        "argentina": { "frequency": "빈번", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Verdad",
+          "textbook_ipa": "/beɾ.dad/",
+          "real_ipa": "[beɾ.ˈða] / [beɾ.ˈðaθ]",
+          "textbook_ko": "베르다드",
+          "real_ko": "베르다 / 베르닷",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "어말 d 탈락 또는 [θ]화"
+        },
+        {
+          "text": "Ciudad",
+          "textbook_ipa": "/θju.dad/",
+          "real_ipa": "[θju.ˈða] / [θju.ˈðaθ]",
+          "textbook_ko": "시(θ)우다드",
+          "real_ko": "시(θ)우다 / 시(θ)우닷",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "어말 d 탈락"
+        },
+        {
+          "text": "Madrid",
+          "textbook_ipa": "/ma.dɾid/",
+          "real_ipa": "[ma.ˈðɾi] / [ma.ˈðɾiθ]",
+          "textbook_ko": "마드리드",
+          "real_ko": "마드리 / 마드릿",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "어말 d 탈락 — 도시 이름에서도!"
+        },
+        {
+          "text": "Cantar (남부)",
+          "textbook_ipa": "/kan.taɾ/",
+          "real_ipa": "[kan.ˈta]",
+          "textbook_ko": "깐따르",
+          "real_ko": "깐따",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "부정사 어말 r 탈락"
+        },
+        {
+          "text": "Comer (남부)",
+          "textbook_ipa": "/ko.meɾ/",
+          "real_ipa": "[ko.ˈme]",
+          "textbook_ko": "꼬메르",
+          "real_ko": "꼬메",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "부정사 어말 r 탈락"
+        },
+        {
+          "text": "Mitad",
+          "textbook_ipa": "/mi.tad/",
+          "real_ipa": "[mi.ˈta]",
+          "textbook_ko": "미따드",
+          "real_ko": "미따",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "어말 d 탈락"
+        },
+        {
+          "text": "Usted",
+          "textbook_ipa": "/us.ted/",
+          "real_ipa": "[us.ˈte]",
+          "textbook_ko": "우스뗃",
+          "real_ko": "우스떼",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "고빈도 어휘 어말 d 탈락"
+        },
+        {
+          "text": "Salud",
+          "textbook_ipa": "/sa.lud/",
+          "real_ipa": "[sa.ˈlu]",
+          "textbook_ko": "살루드",
+          "real_ko": "살루",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "어말 d 탈락"
+        },
+        {
+          "text": "Salir (남부)",
+          "textbook_ipa": "/sa.liɾ/",
+          "real_ipa": "[sa.ˈli]",
+          "textbook_ko": "살리르",
+          "real_ko": "살리",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "부정사 어말 r 탈락"
+        },
+        {
+          "text": "Amistad",
+          "textbook_ipa": "/a.mis.tad/",
+          "real_ipa": "[a.mis.ˈta]",
+          "textbook_ko": "아미스따드",
+          "real_ko": "아미스따",
+          "applied_rules": ["elision_final"],
+          "highlight_description": "어말 d 탈락"
+        }
+      ]
+    },
+    {
+      "id": "encadenamiento",
+      "number": 10,
+      "category": "compuesto",
+      "name_es": "Encadenamiento múltiple",
+      "name_ko": "연쇄 축약 (복합 음운 변화)",
+      "description": "시날레파, 재음절화, 파열음 마찰음화, 자음 탈락, 동화 등 여러 규칙이 단일 문장에서 동시다발적으로 적용. 문장이 하나의 거대한 소리 덩어리로 압축됨.",
+      "icon": "🔥",
+      "difficulty": 3,
+      "obligatorio": true,
+      "why_hard_for_korean": "이것이 '한국인이 실전 스페인어를 못 알아듣는 궁극적 원인'. 텍스트 기반으로 단어를 파싱하는 상향식(Bottom-up) 처리가 완전히 무력화됨. 음절이 쪼개지고 이동하며, 모음이 융합되고, 핵심 자음이 사라지면서 인지적 병목 현상 발생.",
+      "ipa_rules": ["개별 패턴 1~9의 규칙이 2~5개 동시 적용"],
+      "region_config": {
+        "madrid": { "frequency": "필수", "active_in_mvp": true },
+        "andalucia": { "frequency": "필수 (더 극심)", "active_in_mvp": true },
+        "mexico": { "frequency": "필수", "active_in_mvp": true },
+        "caribe": { "frequency": "필수 (더 극심)", "active_in_mvp": true },
+        "argentina": { "frequency": "필수", "active_in_mvp": true }
+      },
+      "examples": [
+        {
+          "text": "Los Estados Unidos",
+          "textbook_ipa": "/los es.ta.dos u.ni.dos/",
+          "real_ipa": "[lo.seh.ˈta.ðo.su.ˈni.ðos]",
+          "textbook_ko": "로스 에스따도스 우니도스",
+          "real_ko": "로세따도수니도스",
+          "applied_rules": ["resilabificacion", "s_aspiration", "espirantizacion"],
+          "highlight_description": "재음절화 + s 약화 + d 마찰음화"
+        },
+        {
+          "text": "Vamos a hacer un poco de todo.",
+          "textbook_ipa": "/ba.mos a a.seɾ un po.ko de to.do/",
+          "real_ipa": "[ˈba.mo.sa.ˈse.ɾum.ˈpo.ko.ðe.ˈto.ðo]",
+          "textbook_ko": "바모스 아 아세르 운 뽀꼬 데 또도",
+          "real_ko": "바모사세룸뽀꼬데또도",
+          "applied_rules": ["sinalefa", "resilabificacion", "asimilacion_nasal", "espirantizacion"],
+          "highlight_description": "모음연결 + 재음절화 + 비음동화 + d 마찰음화"
+        },
+        {
+          "text": "¿Qué vas a hacer hoy?",
+          "textbook_ipa": "/ke bas a a.seɾ oj/",
+          "real_ipa": "[ˈke.βa.sa.ˈse.ɾoj]",
+          "textbook_ko": "께 바스 아 아세르 오이",
+          "real_ko": "께바사세로이",
+          "applied_rules": ["sinalefa", "resilabificacion", "espirantizacion"],
+          "highlight_description": "모음연결 + 재음절화 + b 마찰음화"
+        },
+        {
+          "text": "Un vaso de agua",
+          "textbook_ipa": "/un ba.so de a.gwa/",
+          "real_ipa": "[um.ˈba.so.ˈðja.ɣwa]",
+          "textbook_ko": "운 바소 데 아과",
+          "real_ko": "움바소댜과",
+          "applied_rules": ["asimilacion_nasal", "sinalefa", "espirantizacion"],
+          "highlight_description": "비음동화 + 모음연결 + d,g 마찰음화"
+        },
+        {
+          "text": "Está cansado.",
+          "textbook_ipa": "/es.ta kan.sa.do/",
+          "real_ipa": "[es.ˈta.kan.ˈsa.o]",
+          "textbook_ko": "에스따 깐사도",
+          "real_ko": "에스따깐사오",
+          "applied_rules": ["d_elision"],
+          "highlight_description": "d 완전 탈락 + 연결"
+        },
+        {
+          "text": "Son amigos de España.",
+          "textbook_ipa": "/son a.mi.gos de es.pa.ɲa/",
+          "real_ipa": "[so.na.ˈmi.ɣoz.ðes.ˈpa.ɲa]",
+          "textbook_ko": "손 아미고스 데 에스빠냐",
+          "real_ko": "소나미고즈데스빠냐",
+          "applied_rules": ["resilabificacion", "espirantizacion"],
+          "highlight_description": "재음절화 + g,d 마찰음화 + s 동화"
+        },
+        {
+          "text": "Todos los días",
+          "textbook_ipa": "/to.dos los di.as/",
+          "real_ipa": "[ˈto.ðoh.loh.ˈði.ah]",
+          "textbook_ko": "또도스 로스 디아스",
+          "real_ko": "또도흐로흐디아흐",
+          "applied_rules": ["espirantizacion", "s_aspiration"],
+          "highlight_description": "d 마찰음화 + s 기식음화 (저지대)"
+        },
+        {
+          "text": "Va a estar ahí",
+          "textbook_ipa": "/ba a es.taɾ a.i/",
+          "real_ipa": "[bas.ˈta.ɾa.ˈi]",
+          "textbook_ko": "바 아 에스따르 아이",
+          "real_ko": "바스따라이",
+          "applied_rules": ["sinalefa", "resilabificacion"],
+          "highlight_description": "다중 모음연결 + 재음절화"
+        },
+        {
+          "text": "Lo han dado",
+          "textbook_ipa": "/lo an da.do/",
+          "real_ipa": "[lwan.ˈda.ðo]",
+          "textbook_ko": "로 안 다도",
+          "real_ko": "루안다도",
+          "applied_rules": ["sinalefa", "espirantizacion"],
+          "highlight_description": "모음연결 + d 보존(비음 뒤) + d 마찰음화(모음 간)"
+        },
+        {
+          "text": "Ella trae higos.",
+          "textbook_ipa": "/e.ʎa tɾa.e i.gos/",
+          "real_ipa": "[e.ʝa.ˈtɾae.ˈi.ɣos]",
+          "textbook_ko": "에야 뜨라에 이고스",
+          "real_ko": "에야뜨라이고스",
+          "applied_rules": ["sinalefa", "espirantizacion"],
+          "highlight_description": "시네레시스 + g 마찰음화"
+        },
+        {
+          "text": "Un buen gato",
+          "textbook_ipa": "/un bwen ga.to/",
+          "real_ipa": "[um.ˈbweŋ.ˈga.to]",
+          "textbook_ko": "운 부엔 가또",
+          "real_ko": "움부엥가또",
+          "applied_rules": ["asimilacion_nasal"],
+          "highlight_description": "양순 비음동화 + 연구개 비음동화"
+        },
+        {
+          "text": "Las alas de la mariposa",
+          "textbook_ipa": "/las a.las de la ma.ɾi.po.sa/",
+          "real_ipa": "[la.ˈsa.laz.ðe.la.ma.ɾi.ˈpo.sa]",
+          "textbook_ko": "라스 알라스 데 라 마리뽀사",
+          "real_ko": "라살라즈델라마리뽀사",
+          "applied_rules": ["resilabificacion", "espirantizacion"],
+          "highlight_description": "재음절화 + 유성음화 + d 마찰음화"
+        }
+      ]
+    }
+  ]
+}
